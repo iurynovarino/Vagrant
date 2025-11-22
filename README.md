@@ -33,20 +33,22 @@
 
 ## Configurando o Projeto Vagrant
 - Crie um novo diretório para o seu projeto e inicialize o Vagrant:
-  - Crie e navegue para o diretório do projeto: 
-    <details>
-        mkdir ubuntu-server-2510
-        cd ubuntu-server-2510
-    </details>  
+  - Crie e navegue para o diretório do projeto:
+
+      ```bash
+            mkdir ubuntu-server-2510
+            cd ubuntu-server-2510
+    ``` 
 
 - Inicialize o Vagrant usando a box para Ubuntu 25.10. Vou usar a box mencionada nos resultados da pesquisa:
-  <details>vagrant init alvistack/ubuntu-25.10</details>
-
+  ```bash
+    vagrant init alvistack/ubuntu-25.10
+  ```
 Isso criará o arquivo de configuração principal, o Vagrantfile, nesse diretório.
 
 - Ajustando o Vagrantfile (Opcional, mas Recomendado) Edite o arquivo Vagrantfile que foi criado. Por padrão, ele usará a box especificada. Você pode adicionar configurações de rede, memória e provisionamento neste arquivo.
 
-<detailss>
+```bash
 RubyVagrant.configure("2") do |config|
   # Define a box que será utilizada
   config.vm.box = "alvistack/ubuntu-25.10"
@@ -80,17 +82,23 @@ RubyVagrant.configure("2") do |config|
   #   echo "Nginx instalado."
   # SHELL
 end
-</details>
+```
 
 ## Inicializando a VM
-- Execute o comando principal no Bash **vagrant up** para iniciar o processo automatizado. O Vagrant fará o seguinte:Baixar a box (alvistack/ubuntu-25.10) se ainda não estiver em cache.Criar a VM no VirtualBox com base na box e nas configurações do Vagrantfile. Executará quaisquer scripts de Provisionamento definidos. Por fim, Subirá e iniciará a VM.
+- Execute o comando principal no Bash ``` vagrant up ``` para iniciar o processo automatizado. O Vagrant fará o seguinte:
+   - Baixar a box (alvistack/ubuntu-25.10) se ainda não estiver em cache;
+   - Criar a VM no VirtualBox com base na box e nas configurações do Vagrantfile; 
+   - Executará quaisquer scripts de Provisionamento definidos; 
+   - Por fim, Subirá e iniciará a VM.
 
 ## Acessando a VM 
-- Após o processo vagrant up ser concluído com sucesso, você pode acessar a máquina virtual via SSH.Bashvagrant ssh
+- Após o processo ``` vagrant up ``` ser concluído com sucesso, você pode acessar a máquina virtual via SSH, usando ``` vagrant ssh ```.
 
 ## Comandos Úteis do VagrantComandoDescrição
-vagrant statusMostra o estado atual da sua VM.
-vagrant reloadReinicia a VM, aplicando alterações no Vagrantfile.
-vagrant haltDesliga a VM.
-vagrant suspendSuspende a VM (salva o estado, mais rápido para voltar).
-vagrant destroy Remove a VM e todos os seus recursos do VirtualBox.
+
+
+- ``` vagrant status ``` - Mostra o estado atual da sua VM;
+- ``` vagrant reload ``` - Reinicia a VM, aplicando alterações no Vagrantfile;
+- ``` vagrant halt ``` - Desliga a VM;
+- ``` vagrant suspend ``` - Suspende a VM (salva o estado, mais rápido para voltar);
+- ``` vagrant destroy ``` -  Remove a VM e todos os seus recursos do VirtualBox.
