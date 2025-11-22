@@ -18,11 +18,14 @@
 - Incompatibilidade entre configurações de equipe.
 
 ## Como o Vagrant funciona?
-- Arquivo de configuração (Vagrantfile)
+- Arquivo de configuração (Vagrantfile) - O coração do projeto. É um arquivo de configuração (em Ruby) onde você define tudo sobre a VM (qual sistema operacional usar, quanta memória e CPU, qual rede, etc.). É o arquivo que você compartilha com a equipe para que todos subam uma VM idêntica.
 
-- Fornecedores (providers) - VirtualBox, VMware, Hyper-V, etc.
+- Fornecedores (providers) - É o software de virtualização real que o Vagrant usa para criar a VM. Os mais comuns são VirtualBox, VMware, Hyper-V, etc. O Vagrant funciona como uma interface de alto nível para esses programas.
 
-- Boxes (caixas) - Imagens de máquinas virtuais pré-configuradas
+- Provisioner - Ferramentas (como Shell Script, Ansible, Chef ou Puppet) usadas para instalar e configurar software dentro da VM após ela ser iniciada. Permite que você automatize a instalação do MySQL, PHP, Nginx ou qualquer outra dependência do seu projeto.
+
+- Boxes (caixas) - É uma imagem de sistema operacional pré-configurada (como um ISO/disco rígido pronto para usar). É a base da sua VM. Você define qual box usar no Vagrantfile (ex: ubuntu/jammy64).
+
 
 ## Pré-requisitos (Instalação)
 - Certifique-se de que o VirtualBox e o Vagrant estejam instalados em sua máquina host;
@@ -96,7 +99,9 @@ end
 
 ## Comandos Úteis do VagrantComandoDescrição
 
-
+- ``` vagrant  init ``` - Cria o arquivo Vagrantfile inicial em um novo diretório;
+- ``` vagrant  up ``` - Sobe e configura a Máquina Virtual (VM) pela primeira vez ou liga uma VM existente;
+- ``` vagrant  ssh ``` - Acessa o terminal (linha de comando) da VM em execução;
 - ``` vagrant status ``` - Mostra o estado atual da sua VM;
 - ``` vagrant reload ``` - Reinicia a VM, aplicando alterações no Vagrantfile;
 - ``` vagrant halt ``` - Desliga a VM;
