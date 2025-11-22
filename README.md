@@ -1,5 +1,5 @@
 # Introdução ao Vagrant
-##O que é o Vagrant?
+## O que é o Vagrant?
 - Ferramenta de código aberto para criação e gerenciamento de ambientes de desenvolvimento e produção;
 
 - Desenvolvido pela HashiCorp;
