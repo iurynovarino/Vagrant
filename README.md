@@ -102,3 +102,6 @@ end
 - ``` vagrant halt ``` - Desliga a VM;
 - ``` vagrant suspend ``` - Suspende a VM (salva o estado, mais rápido para voltar);
 - ``` vagrant destroy ``` -  Remove a VM e todos os seus recursos do VirtualBox.
+
+## Exemplo do arquivo Vagrantfile default
+- [Clique aqui](); 
